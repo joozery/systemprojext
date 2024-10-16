@@ -1,30 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  // ฟังก์ชัน handleSubmit สำหรับการส่งข้อมูลไปยัง backend บน Render
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  // ฟังก์ชัน handleLogin สำหรับการส่งข้อมูลเข้าสู่ระบบไปยัง backend
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      const response = await fetch('https://systemprojext.onrender.com/submit', {
+      const response = await fetch('https://systemprojext.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email }),
-      })
-      const data = await response.json()
-      console.log('Response from backend:', data)
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await response.json();
+      console.log('Login response:', data);
+
+      if (data.success) {
+        alert('Login successful');
+        // เพิ่มโค้ดสำหรับ redirect หรือแสดงหน้าใหม่ตามที่ต้องการ
+      } else {
+        alert('Login failed');
+      }
     } catch (error) {
-      console.error('Error submitting data:', error)
+      console.error('Error logging in:', error);
     }
-  }
+  };
 
   return (
     <>
@@ -36,41 +42,26 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Login</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-
-      {/* เพิ่มฟอร์มกรอกข้อมูล */}
-      <div className="card">
-        <h2>Data Entry Form</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           <input
             type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Submit</button>
+          <button type="submit">Login</button>
         </form>
       </div>
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
