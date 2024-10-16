@@ -60,8 +60,8 @@ function App() {
         {/* ส่วนการเข้าสู่ระบบ */}
         <div className="form-container sign-in-container">
           <form onSubmit={handleLogin}>
-            <h1>Welcome Back!</h1>
-            <span>To keep connected with us please login with your personal info</span>
+            <h1>ยินดีต้อนรับ</h1>
+            <span>หากต้องการเชื่อมต่อกับเรา โปรดเข้าสู่ระบบด้วยข้อมูลส่วนบุคคลของคุณ</span>
             <input
               type="email"
               placeholder="Email"
@@ -74,20 +74,20 @@ function App() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">Sign In</button>
+            <button type="submit">เข้าสู่ระบบ</button>
           </form>
         </div>
 
         {/* ส่วนการสมัครสมาชิก */}
         <div className="form-container sign-up-container">
           <form onSubmit={handleSignUp}>
-            <h1>Create Account</h1>
+            <h1>สร้างบัญชีเข้าสู่ระบบของคุณ</h1> {/* แก้ไขตรงนี้ */}
             <div className="social-container">
-              <a href="#" className="social">F</a>
-              <a href="#" className="social">G</a>
-              <a href="#" className="social">L</a>
+              <a href="#" className="social">Facebook</a>
+              <a href="#" className="social">Google</a>
+              <a href="#" className="social">Link</a>
             </div>
-            <span>or use your email for registration:</span>
+            <span>หรือใช้อีเมลของคุณในการลงทะเบียน:</span>
             <input
               type="text"
               placeholder="Name"
@@ -106,7 +106,7 @@ function App() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">Sign Up</button>
+            <button type="submit">สมัครสมาชิก</button>
           </form>
         </div>
       </div>
