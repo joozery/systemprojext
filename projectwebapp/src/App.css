@@ -6,13 +6,16 @@
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f6f5f7;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #f6f5f7;
 }
 
 .form-container {
@@ -21,6 +24,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
+  margin: 0 20px;
 }
 
 h1 {
@@ -48,6 +52,11 @@ button {
   margin-top: 10px;
 }
 
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
 .social-container {
   display: flex;
   justify-content: center;
@@ -71,4 +80,12 @@ button {
 
 .sign-up-container {
   background-color: #ffffff;
+}
+
+.form-container.sign-in-container,
+.form-container.sign-up-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
