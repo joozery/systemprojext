@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'Promt', sans-serif;
+  font-family: 'Prompt', sans-serif; /* ตรวจสอบการสะกดฟอนต์ Prompt */
   background-color: #f6f5f7;
   margin: 0;
   padding: 0;
@@ -68,13 +68,23 @@ input {
 button {
   background-color: #009688;
   border: none;
-  color: white;
+  color: white; /* กำหนดสีตัวอักษรเป็นสีขาวเพื่อมองเห็นได้ชัด */
   padding: 15px 20px;
   font-size: 16px;
   border-radius: 50px;
   cursor: pointer;
   width: 100%;
   margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00796b; /* ปรับสีเมื่อ hover ให้มืดลงเล็กน้อย */
+}
+
+button:disabled {
+  background-color: #ddd;
+  color: #888; /* สีตัวอักษรเมื่อปุ่มถูก disabled */
 }
 
 button.ghost {
