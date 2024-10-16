@@ -81,7 +81,7 @@ function App() {
         {/* ส่วนการสมัครสมาชิก */}
         <div className="form-container sign-up-container">
           <form onSubmit={handleSignUp}>
-            <h1>สร้างบัญชีเข้าสู่ระบบของคุณ</h1> {/* แก้ไขตรงนี้ */}
+            <h1>สร้างบัญชีเข้าสู่ระบบของคุณ</h1> 
             <div className="social-container">
               <a href="#" className="social">Facebook</a>
               <a href="#" className="social">Google</a>
