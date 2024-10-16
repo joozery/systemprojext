@@ -56,57 +56,59 @@ function App() {
 
   return (
     <div className="container">
-      {/* ส่วนการเข้าสู่ระบบ */}
-      <div className="form-container sign-in-container">
-        <form onSubmit={handleLogin}>
-          <h1>Welcome Back!</h1>
-          <span>To keep connected with us please login with your personal info</span>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Sign In</button>
-        </form>
-      </div>
+      <div className="form-wrapper">
+        {/* ส่วนการเข้าสู่ระบบ */}
+        <div className="form-container sign-in-container">
+          <form onSubmit={handleLogin}>
+            <h1>Welcome Back!</h1>
+            <span>To keep connected with us please login with your personal info</span>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="submit">Sign In</button>
+          </form>
+        </div>
 
-      {/* ส่วนการสมัครสมาชิก */}
-      <div className="form-container sign-up-container">
-        <form onSubmit={handleSignUp}>
-          <h1>Create Account</h1>
-          <div className="social-container">
-            <a href="#" className="social">F</a>
-            <a href="#" className="social">G</a>
-            <a href="#" className="social">L</a>
-          </div>
-          <span>or use your email for registration:</span>
-          <input
-            type="text"
-            placeholder="Name"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Sign Up</button>
-        </form>
+        {/* ส่วนการสมัครสมาชิก */}
+        <div className="form-container sign-up-container">
+          <form onSubmit={handleSignUp}>
+            <h1>Create Account</h1>
+            <div className="social-container">
+              <a href="#" className="social">F</a>
+              <a href="#" className="social">G</a>
+              <a href="#" className="social">L</a>
+            </div>
+            <span>or use your email for registration:</span>
+            <input
+              type="text"
+              placeholder="Name"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
       </div>
     </div>
   );
