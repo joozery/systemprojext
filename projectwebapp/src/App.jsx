@@ -2,12 +2,10 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  // สถานะสำหรับฟิลด์ข้อมูล
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // ฟังก์ชันสำหรับการสมัครสมาชิก (Sign Up)
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
@@ -19,7 +17,6 @@ function App() {
         body: JSON.stringify({ username, email, password }),
       });
       const data = await response.json();
-      console.log('Sign up response:', data);
       if (data.success) {
         alert('Sign up successful');
       } else {
@@ -30,7 +27,6 @@ function App() {
     }
   };
 
-  // ฟังก์ชันสำหรับการเข้าสู่ระบบ (Login)
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -42,10 +38,8 @@ function App() {
         body: JSON.stringify({ email, password }),
       });
       const data = await response.json();
-      console.log('Login response:', data);
       if (data.success) {
         alert('Login successful');
-        // ทำการ redirect หรือแสดงหน้าที่ต้องการหลังจากเข้าสู่ระบบ
       } else {
         alert('Login failed');
       }
@@ -57,11 +51,9 @@ function App() {
   return (
     <div className="container">
       <div className="form-wrapper">
-        {/* ส่วนการเข้าสู่ระบบ */}
         <div className="form-container sign-in-container">
           <form onSubmit={handleLogin}>
-            <h1>ยินดีต้อนรับ</h1>
-            <span>หากต้องการเชื่อมต่อกับเรา โปรดเข้าสู่ระบบด้วยข้อมูลส่วนบุคคลของคุณ</span>
+            <h1>Welcome Back</h1>
             <input
               type="email"
               placeholder="Email"
@@ -74,23 +66,15 @@ function App() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">เข้าสู่ระบบ</button>
+            <button type="submit">Login</button>
           </form>
         </div>
-
-        {/* ส่วนการสมัครสมาชิก */}
         <div className="form-container sign-up-container">
           <form onSubmit={handleSignUp}>
-            <h1>สร้างบัญชีเข้าสู่ระบบของคุณ</h1> 
-            <div className="social-container">
-              <a href="#" className="social">Facebook</a>
-              <a href="#" className="social">Google</a>
-              <a href="#" className="social">Link</a>
-            </div>
-            <span>หรือใช้อีเมลของคุณในการลงทะเบียน:</span>
+            <h1>Create Account</h1>
             <input
               type="text"
-              placeholder="Name"
+              placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -106,7 +90,7 @@ function App() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">สมัครสมาชิก</button>
+            <button type="submit">Sign Up</button>
           </form>
         </div>
       </div>
